@@ -31,5 +31,17 @@ export const useTodoStore = create<TodoState>((set) => ({
                 }
                 return todo;
             })
+        })),
+        updateTodo: (id: string, text: string) =>
+        set((state) => ({
+            todos: state.todos.map((todo) => {
+                if (todo.id === id) {
+                    return {
+                        ...todo,
+                        text: text
+                    };
+                }
+                return todo;
+            })
         }))
 }));

@@ -10,4 +10,5 @@ export interface TodoState {
     addTodo: (text: string) => void;
     deleteTodo: (id: string) => void;
     completeTodo: (id: string) => void;
+    updateTodo: (id: string, text: string) => void;
 }
