@@ -43,5 +43,6 @@ export const useTodoStore = create<TodoState>((set) => ({
                 }
                 return todo;
             })
-        }))
+        })),
+        deleteAllTodos: () => set({todos: []})
 }));
