@@ -8,7 +8,12 @@ const TodoList: FC = () => {
     const [todoValue, setTodoValue] = useState("");
     const [editId, setEditId] = useState<string | null>(null);
     const [editText, setEditText] = useState("");
-    const { todos, addTodo, deleteTodo, completeTodo, updateTodo } = useTodoStore();
+    // use selectors to only rerender when state changes
+    const todos = useTodoStore(state => state.todos);
+    const addTodo = useTodoStore(state => state.addTodo);
+    const deleteTodo = useTodoStore(state => state.deleteTodo);
+    const completeTodo = useTodoStore(state => state.completeTodo);
+    const updateTodo = useTodoStore(state => state.updateTodo);
     const darkMode = useDarkModeStore((state) => state.darkMode);
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

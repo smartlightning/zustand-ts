@@ -7,7 +7,10 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const Calendar: React.FC = () => {
-    const { month, year, nextMonth, prevMonth } = useCalendarStore();
+    const month = useCalendarStore(state => state.month);
+    const year = useCalendarStore(state => state.year);
+    const nextMonth = useCalendarStore(state => state.nextMonth);
+    const prevMonth = useCalendarStore(state => state.prevMonth);
     // rerender only when the darkmode value changes
     const darkMode = useDarkModeStore((state)=> state.darkMode);
 
